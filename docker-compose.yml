@@ -1,0 +1,21 @@
+version: '2.0'
+services:
+  ratemygm:
+    build:
+      context: .
+    image: ratemygm:latest
+    ports:
+      - 3002:3002
+  mongo:
+    build:
+      context: ./mysql
+    image: ratemygm-db:latest
+    environment:
+      MONGO_INITDB_DATABASE: ratemygm
+    ports:
+      - 27017:27017
+    volumes:
+      - database:/data/db
+
+volumes:
+  database:
