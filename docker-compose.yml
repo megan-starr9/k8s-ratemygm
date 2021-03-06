@@ -6,9 +6,9 @@ services:
     image: ratemygm:latest
     ports:
       - 3002:3002
-  mongo:
+  mongodb:
     build:
-      context: ./mysql
+      context: ./mongodb
     image: ratemygm-db:latest
     environment:
       MONGO_INITDB_DATABASE: ratemygm
