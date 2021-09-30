@@ -1,21 +1,8 @@
-version: '2.0'
+version: '3.8'
 services:
-  ratemygm:
+  k8s-ratemygm:
     build:
       context: .
-    image: ratemygm:latest
+    image: ${CONTAINER_REGISTRY}/k8s-ratemygm:${VERSION}
     ports:
       - 3002:3002
-  mongodb:
-    build:
-      context: ./mongodb
-    image: ratemygm-db:latest
-    environment:
-      MONGO_INITDB_DATABASE: ratemygm
-    ports:
-      - 27017:27017
-    volumes:
-      - database:/data/db
-
-volumes:
-  database:
